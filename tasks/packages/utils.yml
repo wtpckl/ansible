@@ -1,0 +1,6 @@
+# Install general system utilities
+- name: Install man command
+  community.general.pacman:
+    name: 
+      - man-db
+      - man-pages
