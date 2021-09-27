@@ -1,0 +1,13 @@
+[Unit]
+Description=Update the system configuration with ansible-pull
+
+[Timer]
+# Run 5 minutes after startup
+OnStartupSec=5min
+# Re-run every hour
+OnCalendar=hourly
+# Add a small random delay
+RandomizedDelaySec=1min
+
+[Install]
+WantedBy=timers.target

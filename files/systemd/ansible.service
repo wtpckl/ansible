@@ -1,0 +1,14 @@
+[Unit]
+Description=Update the system configuration with ansible-pull
+
+Requires=network-online.target
+After=network-online.target
+
+
+[Service]
+Type=oneshot
+# Run as the ansible user/group
+User=ansible
+Group=ansible
+# Inhibit sleep and shutdown during run
+ExecStart=systemd-inhibit --what=shutdown:sleep --who=ansible-pull --why="System configuration is being updated" ansible-pull -o -U https://github.com/wtpckl/ansible.git
