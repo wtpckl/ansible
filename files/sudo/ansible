@@ -1,0 +1,2 @@
+# Allow the 'ansible' user to run all commands as 'root' without entering a password
+ansible ALL=(root) NOPASSWD: ALL

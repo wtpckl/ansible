@@ -1,0 +1,15 @@
+- hosts: localhost
+  connection: local
+  become: true
+
+  pre_tasks:
+    - name: Update packages
+      community.general.pacman:
+        update_cache: yes
+        upgrade: yes
+
+  tasks:
+    - include: tasks/user/ansible.yml
+    - include: tasks/sudo/ansible.yml
+    - include: tasks/systemd/ansible.yml
+

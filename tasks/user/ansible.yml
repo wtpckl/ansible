@@ -1,0 +1,7 @@
+- name: Create Ansible user
+  ansible.builtin.user:
+    name: ansible
+    system: yes
+    home: /var/local/lib/ansible/
+    shell: /usr/bin/nologin
+    comment: Ansible system user
