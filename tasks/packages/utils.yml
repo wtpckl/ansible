@@ -4,3 +4,27 @@
     name: 
       - man-db
       - man-pages
+
+- name: Install git
+  community.general.pacman:
+    name: git
+
+- name: Install sudo
+  community.general.pacman:
+    name: sudo
+
+- name: Install vim
+  community.general.pacman:
+    name: vim
+
+# TODO: Install vim config as skeleton files
+
+- name: Install zsh and optional packages
+  community.general.pacman:
+    name:
+      - zsh
+      - zsh-completions
+      - zsh-syntax-highlighting
+      - zsh-theme-powerlevel10k
+
+# TODO: Install zsh/oh-my-zsh/powerlevel10k/... config as skeleton files

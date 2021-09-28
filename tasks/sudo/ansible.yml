@@ -4,4 +4,4 @@
     dest: /etc/sudoers.d/99-ansible
     owner: root
     group: root
-    mode: 0440
+    mode: 0400
