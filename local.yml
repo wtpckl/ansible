@@ -12,9 +12,9 @@
     - include: tasks/packages/utils.yml
     - include: tasks/packages/cockpit.yml
     - include: tasks/packages/gnome.yml
-    - include: tasks/packages/applications.yml
+    # - include: tasks/packages/applications.yml
     - include: tasks/sudo/ansible.yml
     - include: tasks/sudo/wheel.yml
     - include: tasks/user/ansible.yml
-#    - include: tasks/user/ewout.yml
+    # - include: tasks/user/ewout.yml
     - include: tasks/systemd/ansible.yml
