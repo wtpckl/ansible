@@ -1,0 +1,8 @@
+- name: Create user ewout
+  ansible.builtin.user:
+    name: ewout
+    password: password
+    shell: /usr/bin/zsh
+    append: yes
+    groups:
+      - wheel

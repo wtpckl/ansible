@@ -1,9 +1,14 @@
 # Install general system utilities
+
 - name: Install man command
   community.general.pacman:
     name: 
       - man-db
       - man-pages
+
+- name: Install info
+  community.general.pacman:
+    name: texinfo
 
 - name: Install git
   community.general.pacman:
@@ -15,9 +20,20 @@
 
 - name: Install vim
   community.general.pacman:
-    name: vim
+    name:
+      - vim
+      - vim-ansible
+      - vim-editorconfig
 
 # TODO: Install vim config as skeleton files
+
+- name: Install screen
+  community.general.pacman:
+    name: screen
+
+- name: Install tmux
+  community.general.pacman:
+    name: tmux
 
 - name: Install zsh and optional packages
   community.general.pacman:
@@ -28,3 +44,21 @@
       - zsh-theme-powerlevel10k
 
 # TODO: Install zsh/oh-my-zsh/powerlevel10k/... config as skeleton files
+
+- name: Install Flatpak
+  community.general.pacman:
+    name: Flatpak
+
+- name: Install podman
+  community.general.pacman:
+    name:
+      - podman
+      - podman-compose
+      - podman-dnsname
+
+- name: Install python
+  community.general.pacman:
+    name:
+      - python
+      - python-pip
+      - python-virtualenv

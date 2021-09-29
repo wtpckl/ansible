@@ -1,0 +1,44 @@
+- name: Install base GNOME
+  community.general.pacman:
+    name:
+      - gdm
+      - gnome-backgrounds
+      - gnome-control-center
+      - gnome-keyring
+      - gnome-online-accounts
+      - gnome-themes-extra
+
+# TODO: Enable GDM
+
+- name: Install GNOME applications
+  community.general.pacman:
+    name:
+      - eog
+      - evince
+      - file-roller
+      - gedit
+      - gnome-calculator
+      - gnome-calendar
+      - gnome-firmware
+      - gnome-software
+      - gnome-system-monitor
+      - gnome-terminal
+      - gnome-tweaks
+      - nautilus
+      - seahorse
+
+- name: Install GVFS
+  community.general.pacman:
+    name:
+      - gvfs
+      - gvfs-afc
+      - gvfs-goa
+      - gvfs-google
+      - gvfs-gphoto2
+      - gvfs-mtp
+      - gvfs-nfs
+      - gvfs-smb
+
+- name: Install chrome-gnome-shell
+  community.general.pacman:
+    name: chrome-gnome-shell
