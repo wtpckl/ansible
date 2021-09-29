@@ -47,7 +47,7 @@
 
 - name: Install Flatpak
   community.general.pacman:
-    name: Flatpak
+    name: flatpak
 
 - name: Install podman
   community.general.pacman:
