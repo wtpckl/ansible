@@ -39,6 +39,6 @@
       - gvfs-nfs
       - gvfs-smb
 
-- name: Install chrome-gnome-shell
-  community.general.pacman:
-    name: chrome-gnome-shell
+# - name: Install chrome-gnome-shell
+#   community.general.pacman:
+#     name: chrome-gnome-shell
