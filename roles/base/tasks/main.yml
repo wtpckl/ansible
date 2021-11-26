@@ -119,6 +119,15 @@
     group: root
     mode: 0644
 
+- name: Create skeleton Zsh config directory
+  become: yes
+  ansible.builtin.file:
+    path: /etc/skel/.config/zsh
+    state: directory
+    owner: root
+    group: root
+    mode: 0644
+
 - name: Install skeleton `.zshrc` file
   become: yes
   ansible.builtin.copy:
