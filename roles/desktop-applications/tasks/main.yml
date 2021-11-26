@@ -69,7 +69,7 @@
 - name: Install Telegram
   become: yes
   community.general.pacman:
-    name: telegram
+    name: telegram-desktop
     state: latest
 
 - name: Install Steam
