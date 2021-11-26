@@ -1,0 +1,23 @@
+- name: Install Cockpit
+  community.general.pacman:
+    name:
+      - cockpit
+      - cockpit-machines
+      - cockpit-podman
+      - cockpit-pcp
+
+- name: Install PCP
+  community.general.pacman:
+    name: pcp
+
+- name: Enable PCP service
+  systemd:
+    name: pmcd.service
+    enabled: yes
+    state: started
+
+- name: Enable Cockpit socket
+  systemd:
+    name: cockpit.socket
+    enabled: yes
+    state: started

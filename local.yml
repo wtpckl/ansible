@@ -1,20 +1,9 @@
 - hosts: localhost
   connection: local
-  become: true
 
-  pre_tasks:
-    - name: Update packages
-      community.general.pacman:
-        update_cache: yes
-        upgrade: yes
-
-  tasks:
-    - include: tasks/packages/utils.yml
-    - include: tasks/packages/cockpit.yml
-    - include: tasks/packages/gnome.yml
-    # - include: tasks/packages/applications.yml
-    - include: tasks/sudo/ansible.yml
-    - include: tasks/sudo/wheel.yml
-    - include: tasks/user/ansible.yml
-    # - include: tasks/user/ewout.yml
-    - include: tasks/systemd/ansible.yml
+  roles:
+    - base
+    - cockpit
+    - gnome-desktop
+    - gnome-applications
+    - desktop-applications

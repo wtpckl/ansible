@@ -1,0 +1,202 @@
+- name: Install `man`
+  become: yes
+  community.general.pacman:
+    name:
+      - man-db
+      - man-pages
+    state: latest
+
+- name: Install `info`
+  become: yes
+  community.general.pacman:
+    name: texinfo
+    state: latest
+
+- name: Install `git`
+  become: yes
+  community.general.pacman:
+    name: git
+    state: latest
+
+- name: Install `sudo`
+  become: yes
+  community.general.pacman:
+    name: sudo
+
+- name: Add sudo privilege for `wheel` group
+  become: yes
+  ansible.builtin.copy:
+    content: "%wheel ALL=(ALL) ALL"
+    dest: /etc/sudoers.d/99-wheel
+    owner: root
+    group: root
+    mode: 0400
+
+- name: Install `vim`
+  become: yes
+  community.general.pacman:
+    name:
+      - vim
+      - vim-ansible
+      - vim-editorconfig
+    state: latest
+
+- name: Install `screen`
+  become: yes
+  community.general.pacman:
+    name: screen
+    state: latest
+
+- name: Install `tmux`
+  become: yes
+  community.general.pacman:
+    name: tmux
+    state: latest
+
+- name: Install Zsh
+  become: yes
+  community.general.pacman:
+    name:
+      - zsh
+      - zsh-completions
+      - zsh-history-substring-search
+      - zsh-syntax-highlighting
+      - zsh-theme-powerlevel10k
+    state: latest
+
+- name: Install Flatpak
+  become: yes
+  community.general.pacman:
+    name: flatpak
+
+- name: Install Podman
+  become: yes
+  community.general.pacman:
+    name:
+      - podman
+      - podman-compose
+      - podman-dnsname
+
+- name: Install Python
+  become: yes
+  community.general.pacman:
+    name:
+      - python
+      - python-pip
+      - python-virtualenv
+
+- name: Install base-devel group
+  community.general.pacman:
+    name: base-devel
+
+- name: Install `nmap`
+  community.general.pacman:
+    name: nmap
+
+- name: Install `pyenv`
+  community.general.pacman:
+    name: pyenv
+
+- name: Install Syncthing
+  community.general.pacman:
+    name: syncthing
+
+- name: Install LaTeX
+  community.general.pacman:
+    name:
+      - texlive-most
+      - texlive-lang
+
+# ==============================================================================
+# Install skeleton files
+
+- name: Install skeleton `.vimrc` file
+  become: yes
+  ansible.builtin.copy:
+    src: skeleton/vimrc
+    dest: /etc/skel/.vimrc
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install skeleton `.zshrc` file
+  become: yes
+  ansible.builtin.copy:
+    src: skeleton/zshrc
+    dest: /etc/skel/.config/zsh/.zshrc
+    owner: root
+    group: root
+    mode: 0644
+
+# TODO: Install `.p10k.zsh` file
+
+- name: Install skeleton `.pam_environment` file
+  become: yes
+  ansible.builtin.copy:
+    src: skeleton/pam_environment
+    dest: /etc/skel/.pam_environment
+    owner: root
+    group: root
+    mode: 0644
+
+# ==============================================================================
+# Create service user
+
+- name: Create Ansible user
+  become: yes
+  ansible.builtin.user:
+    name: ansible
+    system: yes
+    home: /var/local/lib/ansible/
+    shell: /usr/bin/nologin
+    comment: Ansible system user
+
+# ==============================================================================
+# Install sudo privileges
+
+- name: Install sudo privileges for `wheel` group
+  become: yes
+  ansible.builtin.copy:
+    src: sudo/wheel
+    dest: /etc/sudoers.d/99-wheel
+    owner: rppt
+    group: rppt
+    mode: 0600
+
+- name: Install sudo privileges for `ansible` user
+  become: yes
+  ansible.builtin.copy:
+    src: sudo/ansible
+    dest: /etc/sudoers.d/99-ansible
+    owner: rppt
+    group: rppt
+    mode: 0600
+
+# ==============================================================================
+# Install systemd service and timer
+
+- name: Copy ansible timer
+  become: yes
+  ansible.builtin.copy:
+    src: systemd/ansible.timer
+    dest: /etc/systemd/system/
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy ansible service
+  become: yes
+  ansible.builtin.copy:
+    src: systemd/ansible.service
+    dest: /etc/systemd/system/
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Enable ansible timer
+  become: yes
+  ansible.builtin.systemd:
+    # Reload so the timer is detected
+    daemon_reload: yes
+    name: ansible.timer
+    enabled: yes

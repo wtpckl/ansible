@@ -11,4 +11,4 @@ Type=oneshot
 User=ansible
 Group=ansible
 
-ExecStart=ansible-pull -o -U https://github.com/wtpckl/ansible.git
+ExecStart=/usr/bin/ansible-pull -o -U https://github.com/wtpckl/ansible.git

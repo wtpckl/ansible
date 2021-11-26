@@ -1,0 +1,34 @@
+- name: Install GNOME applications
+  community.general.pacman:
+    name:
+      - baobab
+      - eog
+      - evince
+      - file-roller
+      - gedit
+      - gnome-calculator
+      - gnome-calendar
+      - gnome-firmware
+      - gnome-software
+      - gnome-system-monitor
+      - gnome-terminal
+      - gnome-tweaks
+      - nautilus
+      - seahorse
+
+- name: Install FileRoller optionals
+  community.general.pacman:
+    name:
+      - file-roller
+
+- name: Install GVFS
+  community.general.pacman:
+    name:
+      - gvfs
+      - gvfs-afc
+      - gvfs-goa
+      - gvfs-google
+      - gvfs-gphoto2
+      - gvfs-mtp
+      - gvfs-nfs
+      - gvfs-smb

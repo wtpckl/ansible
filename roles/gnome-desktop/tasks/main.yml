@@ -1,0 +1,9 @@
+- name: Install basic GNOME Desktop
+  become: yes
+  community.general.pacman:
+    name:
+      - gdm
+      - gnome-backgrounds
+      - gnome-control-center
+      - gnome-keyring
+      - gnome-online-accounts

@@ -1,0 +1,99 @@
+- name: Install firefox
+  become: yes
+  community.general.pacman:
+    name: firefox
+    state: latest
+
+- name: Install evolution mail client
+  become: yes
+  community.general.pacman:
+    name: evolution
+    state: latest
+
+- name: Install Bitwarden
+  become: yes
+  community.general.pacman:
+    name: bitwarden
+    state: latest
+
+- name: Install Discord
+  become: yes
+  community.general.pacman:
+    name: discord
+    state: latest
+
+- name: Install Belgian eID software
+  become: yes
+  community.general.pacman:
+    name: eid-mw
+    state: latest
+
+- name: Install feh
+  become: yes
+  community.general.pacman:
+    name: feh
+    state: latest
+
+- name: Install gimp
+  become: yes
+  community.general.pacman:
+    name: gimp
+    state: latest
+
+- name: Install kitty
+  become: yes
+  community.general.pacman:
+    name: kitty
+    state: latest
+
+- name: Install libreoffice and language packs
+  become: yes
+  community.general.pacman:
+    name:
+      - libreoffice-fresh
+      - libreoffice-fresh-en-gb
+      - libreoffice-fresh-nl
+
+- name: Install Signal
+  become: yes
+  community.general.pacman:
+    name: signal-desktop
+    state: latest
+
+- name: Install Element desktop
+  become: yes
+  community.general.pacman:
+    name: element-desktop
+    state: latest
+
+- name: Install Telegram
+  become: yes
+  community.general.pacman:
+    name: telegram
+    state: latest
+
+- name: Install Steam
+  become: yes
+  community.general.pacman:
+    name:
+      - steam
+      - steam-native-runtime
+    state: latest
+
+- name: Install Tor Browser Launcher
+  become: yes
+  community.general.pacman:
+    name: torbrowser-launcher
+    state: latest
+
+- name: Install VLC
+  become: yes
+  community.general.pacman:
+    name: vlc
+    state: latest
+
+- name: Install Wireshark
+  become: yes
+  community.general.pacman:
+    name: wireshark-qt
+    state: latest
