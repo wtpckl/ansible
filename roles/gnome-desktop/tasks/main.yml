@@ -9,6 +9,7 @@
       - gnome-online-accounts
 
 - name: Enable GDM
+  become: yes
   ansible.builtin.systemd:
     name: gdm.service
     enabled: yes
