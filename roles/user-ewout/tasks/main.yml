@@ -1,0 +1,14 @@
+- name: Create user `ewout`
+  become: yes
+  ansible.builtin.user:
+    name: ewout
+    password: password
+    update_password: on_create
+    append: yes
+    groups:
+      - wheel
+    shell: /usr/bin/zsh
+    generate_ssh_key: yes
+    ssh_key_type: ed25519
+    ssh_key_file: .ssh/id_default
+    comment: Ewout
