@@ -2,7 +2,7 @@
   become: yes
   ansible.builtin.user:
     name: ewout
-    password: password
+    password: $6$kunbsrRoein6bA8w$v37Lv35f9MxEtF09G3Q0MeqUN2Hvkt3IJz7OQhFwbSzvcqJHRXxBmLEjeiNNhpv5o8PBAkuWEV4xDOuNe02.Z1
     update_password: on_create
     append: yes
     groups:
