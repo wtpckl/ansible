@@ -1,0 +1,7 @@
+- name: Customize Pacman
+  become: yes
+  ansible.builtin.blockinfile:
+    path: /etc/pacman.conf
+    block: |
+      Color
+      CheckSpace
