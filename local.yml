@@ -2,6 +2,7 @@
   connection: local
 
   roles:
+    - pacman-multilib
     - base
     - cockpit
     - gnome-desktop

@@ -1,0 +1,7 @@
+- name: Enable `multilib` repository for pacman
+  become: yes
+  ansible.builtin.blockinfile:
+    path: /etc/pacman.conf
+    block: |
+      [nultilib]
+      Include = /etc/pacman.d/mirrorlist
