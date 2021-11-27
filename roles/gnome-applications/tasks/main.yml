@@ -17,6 +17,7 @@
       - seahorse
 
 - name: Install FileRoller optionals
+  become: yes
   community.general.pacman:
     extra_args: "--asdeps"
     name:
