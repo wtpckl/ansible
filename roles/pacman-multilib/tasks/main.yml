@@ -5,10 +5,10 @@
     block: |
       [multilib]
       Include = /etc/pacman.d/mirrorlist
-  register: pacman-multilib-enable
+  register: pacman_multilib_enable
 
 - name: Refresh package index
   become: yes
-  when: pacman-multilib-enable.changed
+  when: pacman_multilib_enable.changed
   community.general.pacman:
     update_cache: yes
