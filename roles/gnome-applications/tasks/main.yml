@@ -18,8 +18,13 @@
 
 - name: Install FileRoller optionals
   community.general.pacman:
+    extra_args: "--asdeps"
     name:
-      - file-roller
+      - p7zip
+      - unrar
+      - unace
+      - lrzip
+      - squashfs-tools
 
 - name: Install GVFS
   community.general.pacman:

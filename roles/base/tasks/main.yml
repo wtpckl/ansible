@@ -182,7 +182,7 @@
     mode: 0600
 
 # ==============================================================================
-# Install systemd service and timer
+# Install ansible service and timer
 
 - name: Copy ansible timer
   become: yes

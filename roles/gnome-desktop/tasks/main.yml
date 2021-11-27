@@ -7,3 +7,8 @@
       - gnome-control-center
       - gnome-keyring
       - gnome-online-accounts
+
+- name: Enable GDM
+  ansible.builtin.systemd:
+    name: gdm.service
+    enabled: yes
