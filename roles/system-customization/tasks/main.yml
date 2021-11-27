@@ -3,5 +3,6 @@
   ansible.builtin.blockinfile:
     path: /etc/pacman.conf
     block: |
+      [options]
       Color
       CheckSpace
