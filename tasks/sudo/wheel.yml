@@ -1,7 +1,0 @@
-- name: Enable sudo privilege for wheel group
-  copy:
-    src: files/sudo/wheel
-    dest: /etc/sudoers.d/99-wheel
-    owner: root
-    group: root
-    mode: 0400

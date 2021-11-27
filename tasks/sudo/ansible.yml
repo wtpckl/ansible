@@ -1,7 +1,0 @@
-- name: Install sudo privilege for Ansible
-  copy:
-    src: files/sudo/ansible
-    dest: /etc/sudoers.d/99-ansible
-    owner: root
-    group: root
-    mode: 0400

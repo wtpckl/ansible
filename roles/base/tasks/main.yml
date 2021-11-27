@@ -171,6 +171,7 @@
     owner: root
     group: root
     mode: 0600
+    validate: /usr/sbin/visudo -csf %s
 
 - name: Install sudo privileges for `ansible` user
   become: yes
@@ -180,6 +181,7 @@
     owner: root
     group: root
     mode: 0600
+    validate: /usr/sbin/visudo -csf %s
 
 # ==============================================================================
 # Install ansible service and timer
