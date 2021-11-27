@@ -3,5 +3,5 @@
   ansible.builtin.blockinfile:
     path: /etc/pacman.conf
     block: |
-      [nultilib]
+      [multilib]
       Include = /etc/pacman.d/mirrorlist
